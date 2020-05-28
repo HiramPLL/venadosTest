@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target":"https://venados.dacodes.mx",
+        "secure": false,
+        "changeOrigin":true
+    }
+}

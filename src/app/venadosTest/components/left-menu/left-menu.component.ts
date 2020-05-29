@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, Renderer, ElementRef } from '@angular/core';
 import { onSideNavChange, animateText } from '../../../animations/animations'
 import { DataApiService } from '../../services/data-api-service'
 import { SidenavService } from '../../services/sidenav.service'
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 
 interface schema {
 	value: string;
@@ -17,17 +17,25 @@ interface schema {
 	animations: [onSideNavChange, animateText]
 })
 export class LeftMenuComponent implements OnInit {
+	// @Input() schema : any;
+    @Output() onSelected: EventEmitter<any> = new EventEmitter();
 	public option;
 	public sideNavState: boolean = true;
 	public linkText: boolean = true;
 
 	public pages: schema[] = [
-		{ name: 'Inicio', value: 'home', icon: 'home' },
+		{ name: 'Inicio', value: 'list', icon: 'home' },
 		{ name: 'Estadisticas', value: 'statistics', icon: 'timeline' },
 		{ name: 'Jugadores', value: 'players', icon: 'person_pin' },
 	]
 
-	constructor(private _sidenavService: SidenavService, public dataApiService: DataApiService, private router: Router,) { }
+	constructor(
+		private _sidenavService: SidenavService,
+		public dataApiService: DataApiService, 
+		private router: Router,
+        private activatedRoute: ActivatedRoute,
+	) {
+	 }
 
 	ngOnInit() {
 	}
@@ -43,7 +51,9 @@ export class LeftMenuComponent implements OnInit {
 
 	selectedItem(item) {
 		this.option = item;
-		this.router.navigate(['home']);
+		this.onSelected.emit(item);
 		console.log(this.option);
+		
+		// this.router.navigate(['venadosTest/list']);
 	}
 }

@@ -36,16 +36,8 @@ export class HomeComponent implements OnInit {
             case 'list':
                 this.schema.mode = mode;
                 break;
-            case 'edit':
+            case 'statistics':
                 this.schema.mode = mode;
-                this.schema.config.buttons = [
-                    { name: "save" },
-                    { name: "cancel" }
-                ];
-                this.schema.config.search.show = false;
-                this.schema.config.pager.show = false;
-                this.schema.config.header.show = true;
-                this.schema.config.header.title = 'Editar cliente'
                 break;
             case 'read':
                 this.schema.mode = mode;
@@ -63,6 +55,8 @@ export class HomeComponent implements OnInit {
     }
 
 	options(event){
+        console.log(event);
+        
 		this.setMode(event);
 	}
 

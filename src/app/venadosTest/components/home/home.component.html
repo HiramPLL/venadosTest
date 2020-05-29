@@ -11,8 +11,12 @@
 			</div>
 			<list 
 				*ngIf="schema.mode == 'list'" 
-				[loading] = "loading" >
+				[loading] = "loading">
 			</list>
+			<statistics 
+				*ngIf="schema.mode == 'statistics'" 
+				[loading] = "loading">
+			</statistics>
 		</div>
 	</mat-sidenav-content>
 </mat-sidenav-container>

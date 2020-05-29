@@ -15,8 +15,8 @@
       <mat-nav-list>
 			<mat-list-item *ngFor="let page of pages">
 					<button mat-icon-button>
-						<mat-icon style="padding-right:5px;">{{page?.icon}}</mat-icon>
-					</button>
+						<mat-icon >{{page?.icon}}</mat-icon>
+					</button>&nbsp;
 					<span [@animateText]="linkText ? 'show' : 'hide'" (click)="selectedItem(page)">{{ page?.name }} </span>
 			 </mat-list-item>
       </mat-nav-list>

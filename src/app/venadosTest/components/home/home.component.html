@@ -1,14 +1,18 @@
+
 <app-header [sidenav]="leftSidenav"></app-header>
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #leftSidenav mode="side" opened>
-      <app-left-menu></app-left-menu>
-    </mat-sidenav>
-    <mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
-      <div class="main_content">
-        <div style="padding: 20px;text-align: center;">
-          <img  src="/assets/logo/logovenados.png" alt="">
-          <h1>HOLA2</h1>
-        </div>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+	<mat-sidenav #leftSidenav mode="side" opened>
+		<app-left-menu (onSelected)="options($event)"></app-left-menu>
+	</mat-sidenav>
+	<mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
+		<div class="main_content">
+			<div *ngIf="schema.mode == 'home'" style="padding: 20px;text-align: center;">
+				<img src="/assets/logo/logovenados.png" alt="">
+			</div>
+			<list 
+				*ngIf="schema.mode == 'list'" 
+				[loading] = "loading" >
+			</list>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

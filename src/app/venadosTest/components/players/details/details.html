@@ -1,0 +1,19 @@
+<h1 mat-dialog-title style="text-align: center;color: white;">FICHA TÉCNICA</h1>
+<div >
+    <div style="text-align: center;">
+        <img style="width: 200px; height: 200px;border-radius: 50%;" src="{{data.image}}">
+       
+            <div style="font-size: 18px;color: white;padding-top: 5px;">{{data.fullName?data.fullName:'-'}}</div>
+            <div style="color: white;">{{data.position?data.position:data.role}}</div>
+            <div style="font-size: 16px;color: white;padding-top: 10px;">FECHA DE NACIMIENTO</div> 
+            <div style="font-size: 14px;color: white;">{{data.birthday | date: 'yyyy/MM/dd'}}</div>
+            <div style="font-size: 16px;color: white;padding-top: 10px;"> LUGAR DE NACIMIENTO</div>   
+            <div style="font-size: 14px;color: white;">{{data.birth_place?data.birth_place:'-'}}</div>
+            <div style="font-size: 16px;color: white;padding-top: 10px;">PESO</div>
+            <div style="font-size: 14px;color: white;">{{data.weight?data.weight:'-'}}</div>
+            <div style="font-size: 16px;color: white;padding-top: 10px;">  ALTURA</div>
+            <div style="font-size: 14px;color: white;">{{data.height?data.height:'-'}}</div>
+            <div style="font-size: 16px;color: white;padding-top: 10px;">EQUIPO ANTERIOR</div>
+            <div style="font-size: 14px;color: white;">{{data.last_team?data.last_team:'-'}}</div>
+    </div>
+</div>

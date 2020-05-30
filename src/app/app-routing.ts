@@ -10,12 +10,12 @@ import { FullComponent } from './venadosTest/layouts/full/full.component';
 				component: FullComponent,
 				children: [
 					{
-						path: 'home',
+						path: 'main',
 						loadChildren: './venadosTest/main.module#MainModule'
 					},
 					{
 						path: '',
-						redirectTo: 'home',
+						redirectTo: 'main',
 						pathMatch: 'full'
 					}
 				]

@@ -4,7 +4,7 @@
     <div class="user_menu">
       <mat-nav-list>
         <a mat-list-item>
-          <img class="logo" src="/assets/logo/logovenados.png" alt="">
+          <img class="logo" src="/assets/logo/logovenados.png" >
           <span [@animateText]="linkText ? 'show' : 'hide'">{{ page?.name }} </span>
         </a>
       </mat-nav-list>
@@ -13,11 +13,11 @@
 
     <div>
       <mat-nav-list>
-			<mat-list-item *ngFor="let page of pages">
+			<mat-list-item *ngFor="let page of pages" (click)="selectedItem(page)">
 					<button mat-icon-button>
 						<mat-icon >{{page?.icon}}</mat-icon>
 					</button>&nbsp;
-					<span [@animateText]="linkText ? 'show' : 'hide'" (click)="selectedItem(page)">{{ page?.name }} </span>
+					<span [@animateText]="linkText ? 'show' : 'hide'">{{ page?.name }} </span>
 			 </mat-list-item>
       </mat-nav-list>
     </div>

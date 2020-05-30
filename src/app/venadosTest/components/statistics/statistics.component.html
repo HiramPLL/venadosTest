@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-spinner style="margin: auto;" *ngIf="loading">
+    </mat-spinner>
+    <table *ngIf="!loading" class="striped" mat-table [dataSource]="this.data" multiTemplateDataRows style="width: 100%;">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef class="center"> {{columnLabel.position}} </th>
+            <td mat-cell *matCellDef="let element" class="center"> {{element.position}} </td>
+        </ng-container>
+        <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef class="center"> {{columnLabel.image}} </th>
+            <td mat-cell *matCellDef="let element" class="center">  <img [src]="element.image" [height]="100" [width]="100"> </td>
+        </ng-container>
+        <ng-container matColumnDef="games">
+            <th mat-header-cell *matHeaderCellDef class="end"> {{columnLabel.games}} </th>
+            <td mat-cell *matCellDef="let element" class="end"> {{element.games}} </td>
+        </ng-container>
+        <ng-container matColumnDef="f_goals">
+            <th mat-header-cell *matHeaderCellDef class="end"> {{columnLabel.f_goals}} </th>
+            <td mat-cell *matCellDef="let element" class="end"> {{element.f_goals}} </td>
+        </ng-container>
+        <ng-container matColumnDef="a_goals">
+            <th mat-header-cell *matHeaderCellDef class="end"> {{columnLabel.a_goals}} </th>
+            <td mat-cell *matCellDef="let element" class="end"> {{element.a_goals}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay;sticky: true"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"></tr>
+    </table>
+</div>
+

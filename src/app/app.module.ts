@@ -18,7 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRouting } from './app-routing';
 import { FullComponent } from './venadosTest/layouts/full/full.component';
-
+import 'hammerjs';
 
 @NgModule({
   declarations: [

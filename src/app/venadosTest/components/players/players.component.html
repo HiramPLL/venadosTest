@@ -1,0 +1,23 @@
+<mat-spinner style="margin: auto;" *ngIf="loading">
+</mat-spinner>
+<div *ngIf="!loading" class="cardList" style="overflow: scroll; height: 90vh;  margin-top: 10px;">
+	<ng-container *ngFor="let players of data | keyvalue">
+		<div *ngFor="let player of players.value">
+			<div>
+				<mat-card class="card-players">
+					<div> 
+						<img mat-card-image class="img-card" src="{{player.image}}" (click)="detail(player)">
+						<mat-card-content style="text-align: center;">
+							<div>
+								{{player.position?player.position:player.role}}
+							</div> &nbsp;
+							<div>
+								{{player.name}}
+							</div>
+						</mat-card-content>
+					</div>
+				</mat-card>
+			</div>
+		</div>
+	</ng-container>
+</div>

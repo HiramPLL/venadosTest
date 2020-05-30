@@ -17,10 +17,10 @@
                                 </div>
                                 <div style="text-align: center;" *ngIf="columnLabel[column] == 'LOCAL'">
                                     <div *ngIf="element[column]">
-                                        LOCAL
+                                        Local
                                     </div>
                                     <div *ngIf="!element[column]">
-                                        VISITANTE
+                                        Visitante
                                     </div>
                                 </div>
                                 <div style="text-align: center;"
@@ -30,7 +30,7 @@
                                 </div>
                             </td>
                         </ng-container>
-                        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                        <tr mat-header-row *matHeaderRowDef="columnsToDisplay ;sticky: true"></tr>
                         <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"></tr>
                     </table>
             </mat-tab>

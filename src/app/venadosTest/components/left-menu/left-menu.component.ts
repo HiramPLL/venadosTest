@@ -52,8 +52,5 @@ export class LeftMenuComponent implements OnInit {
 	selectedItem(item) {
 		this.option = item;
 		this.onSelected.emit(item);
-		console.log(this.option);
-		
-		// this.router.navigate(['venadosTest/list']);
 	}
 }

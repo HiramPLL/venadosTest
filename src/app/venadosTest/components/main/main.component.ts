@@ -5,9 +5,9 @@ import { onMainContentChange } from '../../../animations/animations';
 import { LeftMenuComponent } from '../left-menu/left-menu.component';
 
 @Component({
-	selector: 'home',
-	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.css'],
+	selector: 'main',
+	templateUrl: './main.component.html',
+	styleUrls: ['./main.component.css'],
 	animations: [ onMainContentChange ]
 })
 
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
 	constructor(private _sidenavService: SidenavService,public dataApiService: DataApiService) {
 		this.schema = {
-			mode:'home'
+			mode:'main'
 		}
 		this._sidenavService.sideNavState$.subscribe( res => {
 		  this.onSideNavChange = res;
@@ -39,24 +39,16 @@ export class HomeComponent implements OnInit {
             case 'statistics':
                 this.schema.mode = mode;
                 break;
-            case 'read':
+            case 'players':
                 this.schema.mode = mode;
-                this.schema.config.buttons = [
-                    { name: "back" },
-                ];
-                this.schema.config.search.show = false;
-                this.schema.config.pager.show = false;
-                this.schema.config.header.title = 'Consulta cliente'
                 break;
             default:
-                this.schema.mode = 'home';
+                this.schema.mode = 'main';
                 break;
         }
     }
 
 	options(event){
-        console.log(event);
-        
 		this.setMode(event);
 	}
 

@@ -33,19 +33,13 @@ export class ListComponent implements OnInit {
 		this.getAllGames();
 	}
 	selectedTabs(indexTab){
-		console.log(indexTab);
-		
 		switch (indexTab) {
 			case 1:
 				this.filterData = this.filterleague(this.LDA);
-
-				console.log(this.filterData);
-				
 				break;
 		
 			default:
 				this.filterData = this.filterleague(this.COM);
-				console.log(this.filterData);
 				break;
 		}	
 	}
